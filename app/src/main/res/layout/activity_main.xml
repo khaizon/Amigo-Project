@@ -68,7 +68,8 @@ android:background=""-->
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="206dp">
+            android:layout_height="206dp"
+            android:scrollbarSize="5dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -117,6 +118,10 @@ android:background=""-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </HorizontalScrollView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <!--        <GridLayout-->
         <!--            android:layout_width="match_parent"-->
