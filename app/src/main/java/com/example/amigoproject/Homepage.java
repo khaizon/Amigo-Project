@@ -19,7 +19,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class Homepage extends AppCompatActivity {
 
     // for testing purposes, Main Activity file should be compiled after every view has been completed.
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         suggestedList.add("2sdsa");
         suggestedList.add("23dsfdsfe");
 
-        adapter = new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,suggestedList);
+        adapter = new ArrayAdapter(Homepage.this,android.R.layout.simple_list_item_1,suggestedList);
         suggestedListView.setAdapter(adapter);
 
 
