@@ -22,16 +22,16 @@ android:background=""-->
             android:layout_marginRight="0dp"
             android:background="@color/cardview_dark_background">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:text="Explore"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                tools:layout_centerInParent="true" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:text="Explore"-->
+<!--                android:textColor="#FFFFFF"-->
+<!--                android:textSize="22sp"-->
+<!--                tools:layout_centerInParent="true" />-->
 
             <!-- load profile picture, can be in profile page-->
             <!--            <de.hdodenhof.circleimageview.CircleImageView-->
@@ -58,7 +58,7 @@ android:background=""-->
             android:queryHint="Search Projects by Name.." />
 
         <TextView
-            android:id="@+id/projectCategories"
+            android:id="@+id/projectCategoriesTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -130,26 +130,18 @@ android:background=""-->
             />
 
         <TextView
-            android:id="@+id/suggestedProjects"
+            android:id="@+id/suggestedTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="Suggested For You"
             android:textSize="20sp" />
 
-        <ScrollView
+        <ListView
+            android:id="@+id/suggestedListView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ExpandableListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                />
-
-
-        </ScrollView>
-
+            android:layout_height="257dp"
+            android:padding="20dp" />
 
 
         <!--        <GridLayout-->
@@ -162,11 +154,13 @@ android:background=""-->
     </LinearLayout>
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_alignParentBottom="true"
         android:background="@color/cardview_dark_background"
         app:cnb_menuResource="@menu/menu_bottom"
+
 
         />
 
