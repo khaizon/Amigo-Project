@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -48,7 +48,7 @@ android:background=""-->
 
         <SearchView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="35dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
@@ -58,18 +58,18 @@ android:background=""-->
             android:queryHint="Search Projects by Name.." />
 
         <TextView
-            android:id="@+id/projectTitle"
+            android:id="@+id/projectCategories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Projects"
-            android:textSize="18sp" />
+            android:text="Project Categories"
+            android:textSize="20sp" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="206dp"
-            android:scrollbarSize="5dp">
+            android:layout_height="125dp"
+            android:scrollbars="none">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -119,9 +119,38 @@ android:background=""-->
             </androidx.constraintlayout.widget.ConstraintLayout>
         </HorizontalScrollView>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+        <Button
+            android:id="@+id/seeAllButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="See All Projects"
+            android:background="@color/cardview_dark_background"
+            android:backgroundTint="@color/cardview_dark_background"
+            />
+
+        <TextView
+            android:id="@+id/suggestedProjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Suggested For You"
+            android:textSize="20sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ExpandableListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                />
+
+
+        </ScrollView>
+
+
 
         <!--        <GridLayout-->
         <!--            android:layout_width="match_parent"-->
@@ -130,8 +159,16 @@ android:background=""-->
         <!--                android:layout_width="match_parent"-->
         <!--                android:layout_height="match_parent"></HorizontalScrollView>-->
 
-
     </LinearLayout>
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cardview_dark_background"
+        app:cnb_menuResource="@menu/menu_bottom"
+
+        />
 
 
 
@@ -144,4 +181,4 @@ android:background=""-->
 <!--        app:layout_constraintRight_toRightOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-</ScrollView>
+</RelativeLayout>
