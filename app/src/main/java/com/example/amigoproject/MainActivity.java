@@ -2,12 +2,16 @@ package com.example.amigoproject;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -29,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     ChipNavigationBar menu_bottom;
     private Button seeAllButton;
 
+    String s1[] = {"Learn Python with Me :)", "two", "three", "four", "five"};
+    String s2[] = {"one", "two", "three", "four", "five"};
+
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         // use this to switch between activity views
         setContentView(R.layout.explore_homepage);
         this.setTitle("Explore");
+
+//        WindowInsetsController.hide(WindowInsets.Type.navigationBars());
 
         seeAllButton = findViewById(R.id.seeAllButton);
         seeAllButton.setOnClickListener(new View.OnClickListener() {
@@ -48,19 +58,26 @@ public class MainActivity extends AppCompatActivity {
         menu_bottom = findViewById(R.id.navigation);
         menu_bottom.setItemSelected(0, true);
 
-        suggestedListView = findViewById(R.id.suggestedListView);
+        MyAdapter myAdapter = new MyAdapter(s1,s2);
 
-        suggestedList.add("Orange");
-        suggestedList.add("123");
-        suggestedList.add("456");
-        suggestedList.add("789");
-        suggestedList.add("2343e");
-        suggestedList.add("2343e");
-        suggestedList.add("2sdsa");
-        suggestedList.add("23dsfdsfe");
+        recyclerView = findViewById(R.id.suggestedRecycler);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,suggestedList);
-        suggestedListView.setAdapter(adapter);
+//
+//        suggestedListView = findViewById(R.id.suggestedListView);
+//
+//        suggestedList.add("Orange");
+//        suggestedList.add("123");
+//        suggestedList.add("456");
+//        suggestedList.add("789");
+//        suggestedList.add("2343e");
+//        suggestedList.add("2343e");
+//        suggestedList.add("2sdsa");
+//        suggestedList.add("23dsfdsfe");
+//
+//        adapter = new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,suggestedList);
+//        suggestedListView.setAdapter(adapter);
 
 
     }
