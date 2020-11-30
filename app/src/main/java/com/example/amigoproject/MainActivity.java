@@ -2,12 +2,15 @@ package com.example.amigoproject;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowInsets;
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     List suggestedList = new ArrayList();
     ArrayAdapter adapter;
     ChipNavigationBar menu_bottom;
+    FragmentManager fragmentManager;
+    private static final String TAG = MainActivity.class.getSimpleName();
     private Button seeAllButton;
 
     String s1[] = {"Learn Python with Me :)", "two", "three", "four", "five"};
@@ -57,6 +62,46 @@ public class MainActivity extends AppCompatActivity {
 
         menu_bottom = findViewById(R.id.navigation);
         menu_bottom.setItemSelected(0, true);
+
+        if (savedInstanceState == null){
+            menu_bottom.setItemSelected(R.id.explore, true);
+            fragmentManager = getSupportFragmentManager();
+            DiscoverFragment discoverFragment = new DiscoverFragment();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, discoverFragment)
+                    .commit();
+        }
+
+        menu_bottom.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int id) {
+                Fragment fragment = null;
+                switch(id) {
+                    case R.id.explore:
+                        fragment = new DiscoverFragment();
+                        break;
+                    case R.id.chats:
+                        fragment = new ChatsFragment();
+                        break;
+                    case R.id.projects:
+                        fragment = new MyProjectsFragment();
+                        break;
+                    case R.id.profile:
+                        fragment = new ProfileFragment();
+                        break;
+                }
+
+                if (fragment != null){
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, fragment)
+                            .commit();
+                }
+                else {
+                    Log.e(TAG, "Error in creating fragment");
+                }
+            }
+        });
 
         MyAdapter myAdapter = new MyAdapter(s1,s2);
 

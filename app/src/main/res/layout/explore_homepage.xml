@@ -158,6 +158,11 @@ android:background=""-->
         <!--                android:layout_height="match_parent"></HorizontalScrollView>-->
 
     </LinearLayout>
+    
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/navigation"
